@@ -13,12 +13,12 @@ def calculo_bonus()->str:
     '''
     Função que retorna o nome do usuário (input), salário (calculated) e bônus (input)
     '''
-    NOME_GATE = False
-    SALARIO_GATE = False
-    BONUS_GATE = False
+    NOME_GATE: bool = False
+    SALARIO_GATE: bool = False
+    BONUS_GATE: bool = False
 
     while NOME_GATE is not True:
-        nome_usuario = str(input("Digite seu nome: "))
+        nome_usuario: str = str(input("Digite seu nome: "))
         if nome_usuario.isdigit():
             print("O nome é um número")
         elif nome_usuario.isspace():
@@ -28,7 +28,7 @@ def calculo_bonus()->str:
 
     while SALARIO_GATE is not True:
         try:
-            salario = float(input("Digite o seu salário: "))
+            salario: float = float(input("Digite o seu salário: "))
             if salario <= 0:
                 print("Valor do salário negativo ou zerado")
             else:
@@ -38,7 +38,7 @@ def calculo_bonus()->str:
     
     while BONUS_GATE is not True:
         try:
-            bonus = float(input("Digite o seu bônus (ex.: '10' para 10%): "))
+            bonus: float = float(input("Digite o seu bônus (ex.: '10' para 10%): "))
             if bonus < 0:
                 print("Valor do bônus menor que 0")
             else:
@@ -46,7 +46,7 @@ def calculo_bonus()->str:
         except ValueError:
             print("Não é um número válido")
     
-    bonus_calculado = round(salario*bonus/100,1)
+    bonus_calculado: float = round(salario*bonus/100,1)
     return print(f"{nome_usuario}, seu salário é de {salario} reais e seu bônus de {bonus_calculado} reais")
 
 if __name__ == '__main__':
